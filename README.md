@@ -8,8 +8,8 @@
 
 # Docker com seus containers e imagens
 
-<img src="/img/spring_boot.png"> 
+<img src="/src/main/resources/static/img/spring_boot.png"> 
 
-<img src="/img/mysql.png"> 
+<img src="/src/main/resources/static/img/mysql.png"> 
 
-<img src="/img/docker.png">
+<img src="/src/main/resources/static/img/docker.png">
