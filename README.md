@@ -7,3 +7,9 @@
 # Integração do CRUD com o Mysql
 
 # Docker com seus containers e imagens
+
+<img src="/img/spring_boot.png"> 
+
+<img src="/img/mysql.png"> 
+
+<img src="/img/docker.png">
