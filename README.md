@@ -7,5 +7,3 @@
 # Integração do CRUD com o Mysql
 
 # Docker com seus containers e imagens
-
-# Alguma coisa
