@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.Arrays;
-import java.util.Optional;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,15 +18,19 @@ public class CookieService {
     }
 
     public static String getCookie(HttpServletRequest request, String key) throws UnsupportedEncodingException {
-        
-        String valor = Optional.ofNullable(request.getCookies())
-        .flatMap(cookies -> Arrays.stream(cookies)
-                .filter(cookie -> key.equals(cookie.getName()))
-                .findAny()
-                .map(e -> e.getValue()))
-        .orElse(null);
+        Cookie[] cookies = request.getCookies();
 
-        valor = URLDecoder.decode(valor, "UTF-8");
-        return valor;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (key.equals(cookie.getName())) {
+                    String valor = cookie.getValue();
+                    if (valor != null) {
+                        return URLDecoder.decode(valor, "UTF-8");
+                    }
+                }
+            }
+        }
+
+        return null; // Retorna null se o cookie não for encontrado ou se o valor for null
     }
 }
